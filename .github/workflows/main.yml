@@ -1,0 +1,36 @@
+name: Next JS Bulid with caching & Artifacts
+
+on: 
+ push: 
+  branches: [main]
+
+jobs:
+  bulid:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: checkout repository
+     - uses: actions/checkout@v6.0.3
+     
+     - name: Setup Node JS
+     - uses: actions/setup-node@v6.4.0
+      with:
+        node-version: 22.x
+        cache: 'npm'
+     
+     - name: install dependencies
+       run: npm install 
+
+     - name: bulid Next Js App
+       run:  npm run bulid
+
+     - name: Upload Bulid On Artifacts
+       ueses: actions/upload-artifact@v7.0.1
+       with:
+         name: Nextjs-bulid
+         path: out/
+       
+     
+     
+     
+     
