@@ -5,7 +5,7 @@ on:
   branches: [main]
 
 jobs:
-  bulid:
+  build:
    runs-on: ubuntu-latest
 
    steps:
@@ -21,13 +21,13 @@ jobs:
      -  name: install dependencies
         run: npm install 
 
-     -  name: bulid Next Js App
-        run:  npm run bulid
+     -  name: build Next Js App
+        run:  npm run build
 
-     -  name:  Upload Bulid On Artifacts
+     -  name:  Upload Build On Artifacts
         uses: actions/upload-artifact@v7.0.1
         with:
-           name: Nextjs-bulid
+           name: Nextjs-build
            path: out/
        
      
